@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
 import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
@@ -56,9 +56,9 @@ function Layout() {
 export default function App() {
   return (
     <ThemeProvider>
-      <BrowserRouter basename="/nextube">
+      <HashRouter>
         <Layout />
-      </BrowserRouter>
+      </HashRouter>
     </ThemeProvider>
   );
 }
