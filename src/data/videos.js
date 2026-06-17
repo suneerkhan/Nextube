@@ -1,4 +1,4 @@
-export const API_KEY = 'AIzaSyDOdtEw7YlZpzu3kCOZ17p0DRSajItH6q0';
+
 export const categories = [
   'All', 'Trending', 'Music', 'Gaming', 'News', 'Sports', 'Tech', 'Cooking', 'Travel', 'Science', 'Movies', 'Live'
 ];
