@@ -52,8 +52,8 @@ function Layout() {
     </div>
   );
 }
-
 export default function App() {
+
   return (
     <ThemeProvider>
       <BrowserRouter basename="/Nextube">

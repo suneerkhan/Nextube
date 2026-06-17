@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import VideoCard, { VideoCardSkeleton } from '../components/VideoCard';
 import CategoryBar from '../components/CategoryBar';
 import { mockVideos } from '../data/videos';
+import { fetchPopularVideos } from '../api/youtube';
 import './HomePage.css';
 
 export default function HomePage() {
@@ -11,6 +12,11 @@ export default function HomePage() {
   const [page, setPage] = useState(1);
 
   useEffect(() => {
+  // fetchPopularVideos().then(data => {
+//   console.log(data);
+//   setVideos(data);
+//   setLoading(false);
+// });
     setLoading(true);
     setPage(1);
     const timer = setTimeout(() => {
