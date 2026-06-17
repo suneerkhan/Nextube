@@ -1,0 +1,142 @@
+:root {
+  --red: #ff2d2d;
+  --red-dim: #cc1f1f;
+  --red-glow: rgba(255, 45, 45, 0.18);
+  --transition: 0.2s ease;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+[data-theme='dark'] {
+  --bg: #0f0f0f;
+  --bg2: #181818;
+  --bg3: #222222;
+  --bg4: #2d2d2d;
+  --text: #f1f1f1;
+  --text2: #aaaaaa;
+  --text3: #717171;
+  --border: rgba(255,255,255,0.08);
+  --border2: rgba(255,255,255,0.14);
+  --card-hover: rgba(255,255,255,0.04);
+  --scrollbar: #3a3a3a;
+  --chip-bg: #272727;
+  --chip-active: #f1f1f1;
+  --chip-active-text: #0f0f0f;
+  --skeleton: linear-gradient(90deg, #222 25%, #2d2d2d 50%, #222 75%);
+}
+
+[data-theme='light'] {
+  --bg: #ffffff;
+  --bg2: #f9f9f9;
+  --bg3: #f0f0f0;
+  --bg4: #e5e5e5;
+  --text: #0f0f0f;
+  --text2: #606060;
+  --text3: #909090;
+  --border: rgba(0,0,0,0.08);
+  --border2: rgba(0,0,0,0.14);
+  --card-hover: rgba(0,0,0,0.03);
+  --scrollbar: #c8c8c8;
+  --chip-bg: #f0f0f0;
+  --chip-active: #0f0f0f;
+  --chip-active-text: #ffffff;
+  --skeleton: linear-gradient(90deg, #e8e8e8 25%, #d8d8d8 50%, #e8e8e8 75%);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--scrollbar); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text3); }
+
+a { text-decoration: none; color: inherit; }
+button { cursor: pointer; border: none; background: none; font-family: var(--font-body); }
+img { display: block; }
+
+/* Animations */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.fade-in { animation: fadeIn 0.35s ease both; }
+.scale-in { animation: scaleIn 0.25s ease both; }
+
+/* Skeleton loader */
+.skeleton {
+  background: var(--skeleton);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--radius-sm);
+}
+
+/* Live badge */
+.live-badge {
+  background: var(--red);
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: var(--font-body);
+}
+
+/* Page layout */
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  padding-top: 56px;
+  min-width: 0;
+  transition: margin-left 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0 !important;
+  }
+}

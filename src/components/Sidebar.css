@@ -1,0 +1,122 @@
+.sidebar {
+  position: fixed;
+  top: 56px;
+  left: 0;
+  height: calc(100vh - 56px);
+  width: 240px;
+  background: var(--bg);
+  border-right: 1px solid var(--border);
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 90;
+  transition: width 0.25s ease, transform 0.25s ease;
+  transform: translateX(-100%);
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
+
+.sidebar.collapsed {
+  width: 72px;
+  transform: translateX(0);
+}
+
+.sidebar-overlay {
+  display: none;
+}
+
+.sidebar-inner {
+  padding: 8px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 16px;
+  border-radius: var(--radius-sm);
+  margin: 1px 8px;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 400;
+  transition: background var(--transition);
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.sidebar-item:hover {
+  background: var(--bg3);
+}
+
+.sidebar-item.active {
+  background: var(--bg3);
+  font-weight: 600;
+}
+
+.sidebar-item.disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.sidebar-item.disabled:hover {
+  background: none;
+}
+
+.sidebar-icon {
+  font-size: 18px;
+  width: 24px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.sidebar-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sidebar-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 8px 16px;
+}
+
+.sidebar.collapsed .sidebar-item {
+  justify-content: center;
+  padding: 12px;
+  gap: 0;
+}
+
+.sidebar.collapsed .sidebar-divider {
+  margin: 8px;
+}
+
+@media (max-width: 1100px) {
+  .sidebar:not(.collapsed) {
+    width: 72px;
+  }
+  .sidebar:not(.collapsed) .sidebar-item {
+    justify-content: center;
+    padding: 12px;
+    gap: 0;
+  }
+  .sidebar:not(.collapsed) .sidebar-label {
+    display: none;
+  }
+  .sidebar:not(.collapsed) .sidebar-divider {
+    margin: 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 240px;
+    transform: translateX(-100%);
+    z-index: 150;
+  }
+  .sidebar.open {
+    transform: translateX(0);
+    box-shadow: 4px 0 24px rgba(0,0,0,0.2);
+  }
+}
